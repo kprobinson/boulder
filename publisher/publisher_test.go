@@ -205,7 +205,7 @@ func setup(t *testing.T) (*Impl, *x509.Certificate, *ecdsa.PrivateKey) {
 		"test-user-agent/1.0",
 		log,
 		metrics.NoopRegisterer)
-	pub.issuerBundle = append(pub.issuerBundle, ct.ASN1Cert{Data: intermediatePEM.Bytes})
+	pub.issuerBundles = append(pub.issuerBundles, ct.ASN1Cert{Data: intermediatePEM.Bytes})
 
 	leafPEM, _ := pem.Decode([]byte(testLeaf))
 	leaf, err := x509.ParseCertificate(leafPEM.Bytes)
